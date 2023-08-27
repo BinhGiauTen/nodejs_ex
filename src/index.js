@@ -12,6 +12,10 @@ db.connect();
 
 app.use(express.static(path.join(__dirname,'public')))
 
+// Middleware để phân tích dữ liệu từ yêu cầu POST
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 app.use(morgan('combined'));
 
 // Configure Handlebars as the view engine
